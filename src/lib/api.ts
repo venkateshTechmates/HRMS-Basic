@@ -269,15 +269,15 @@ function mockResponse(method: string, endpoint: string, body?: any): any {
 
   // Payroll
   if (method === 'GET' && path === '/admin/payroll') return [
-    { id: 1, user_id: 2, employee_name: 'Jane Smith',   period: 'Mar 2026', basic: 75000, allowances: 5000, deductions: 12000, net_pay: 68000, status: 'processed', paid_on: today(-5) },
-    { id: 2, user_id: 3, employee_name: 'Bob Johnson',  period: 'Mar 2026', basic: 70000, allowances: 4500, deductions: 11000, net_pay: 63500, status: 'processed', paid_on: today(-5) },
-    { id: 3, user_id: 4, employee_name: 'Alice Brown',  period: 'Mar 2026', basic: 65000, allowances: 4000, deductions: 10000, net_pay: 59000, status: 'processed', paid_on: today(-5) },
-    { id: 4, user_id: 5, employee_name: 'Charlie Davis',period: 'Mar 2026', basic: 85000, allowances: 6000, deductions: 14000, net_pay: 77000, status: 'processed', paid_on: today(-5) },
+    { id: 1, user_id: 2, employee_name: 'Jane Smith',   employee_id: 'EMP002', month: 'March', year: 2026, basic_salary: 75000, allowances: 5000, deductions: 12000, net_pay: 68000, status: 'processed', paid_on: today(-5) },
+    { id: 2, user_id: 3, employee_name: 'Bob Johnson',  employee_id: 'EMP003', month: 'March', year: 2026, basic_salary: 70000, allowances: 4500, deductions: 11000, net_pay: 63500, status: 'processed', paid_on: today(-5) },
+    { id: 3, user_id: 4, employee_name: 'Alice Brown',  employee_id: 'EMP004', month: 'March', year: 2026, basic_salary: 65000, allowances: 4000, deductions: 10000, net_pay: 59000, status: 'processed', paid_on: today(-5) },
+    { id: 4, user_id: 5, employee_name: 'Charlie Davis',employee_id: 'EMP005', month: 'March', year: 2026, basic_salary: 85000, allowances: 6000, deductions: 14000, net_pay: 77000, status: 'processed', paid_on: today(-5) },
   ];
   if (method === 'GET' && path === '/payroll/me') return [
-    { id: 1, period: 'Mar 2026', basic: 75000, allowances: 5000, deductions: 12000, net_pay: 68000, status: 'processed', paid_on: today(-5) },
-    { id: 2, period: 'Feb 2026', basic: 75000, allowances: 5000, deductions: 12000, net_pay: 68000, status: 'processed', paid_on: today(-35) },
-    { id: 3, period: 'Jan 2026', basic: 75000, allowances: 5000, deductions: 12500, net_pay: 67500, status: 'processed', paid_on: today(-65) },
+    { id: 1, month: 'March',    year: 2026, basic_salary: 75000, allowances: 5000, deductions: 12000, net_pay: 68000, status: 'processed', paid_on: today(-5) },
+    { id: 2, month: 'February', year: 2026, basic_salary: 75000, allowances: 5000, deductions: 12000, net_pay: 68000, status: 'processed', paid_on: today(-35) },
+    { id: 3, month: 'January',  year: 2026, basic_salary: 75000, allowances: 5000, deductions: 12500, net_pay: 67500, status: 'processed', paid_on: today(-65) },
   ];
   if (method === 'POST' && path === '/admin/payroll') return { id: Date.now(), ...body, status: 'draft' };
 
